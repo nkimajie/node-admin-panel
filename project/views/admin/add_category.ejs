@@ -1,0 +1,77 @@
+<%- include("partials/header") %>
+
+<style>
+  #form-add-category label.error{
+    color:red;
+  }
+</style >
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+       
+               <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-12">
+            <!-- general form elements disabled -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Add Category</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form id="form-add-category" name="form-add-category" method="POST" action="/admin/add_category">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Name</label>
+                        <input required name="name" type="text" class="form-control" placeholder="Enter Name">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" name="status" >
+                          <option selected disabled>Select Status</option>
+                          <option value="1">Active</option>
+                          <option value="0">Disable</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-dark">Submit</button>
+
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        
+          </div>
+          <!--/.col (right) -->
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+<%- include("partials/footer") %>
+

@@ -1,0 +1,123 @@
+<%- include("partials/header") %>
+
+<style>
+  #frm-add-book label.error{
+    color:red;
+  }
+</style >
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Book</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Book</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+       
+               <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-12">
+            <!-- general form elements disabled -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Add Book</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <form role="form" method="POST" action="/admin/add-book" id="frm-add-book" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Name</label>
+                        <input name="name" type="text" required class="form-control" placeholder="Enter Name">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="status">Select Category</label>
+                        <select required class="form-control" name="categoryId" >
+                          <option selected disabled>Choose Category</option>
+                          <% categories.forEach(function(data){ %>
+                            <option value="<%= data.id %>"><%= data.name %></option>
+                          <% }) %>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea required class="form-control" name="description" placeholder="description" ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="status">Amount</label>
+                        <input name="amount" required type="number" class="form-control" placeholder="Enter Amount">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="">Cover Image</label>
+                        <input type="file" required class="form-control-file" name="cover_image" id="" placeholder="" aria-describedby="fileHelpId">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="status">Author</label>
+                        <input required name="author" type="text" class="form-control" placeholder="Enter Author">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                   
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="status">Select Status</label>
+                        <select required class="form-control" name="status" >
+                          <option selected disabled>Select Status</option>
+                          <option value="1">Active</option>
+                          <option value="0">Disable</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-dark">Submit</button>
+
+                </form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        
+          </div>
+          <!--/.col (right) -->
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+<%- include("partials/footer") %>
+

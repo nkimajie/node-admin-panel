@@ -1,0 +1,114 @@
+<%- include("partials/header") %>
+
+<style>
+    #frm-add-user label.error {
+        color: red;
+    }
+</style>
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Edit User</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Edit User</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements disabled -->
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit User</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form method="post" action="/admin/edit-user/<%= user.id %>" id="frm-add-user">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input required value="<%= user.name %>" type="text" class="form-control"
+                                            placeholder="Enter name" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input readonly value="<%= user.email %>" type="email" class="form-control"
+                                            placeholder="Enter email" name="email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Mobile Number</label>
+                                        <input required value="<%= user.mobile %>" type="text" class="form-control"
+                                            placeholder="Enter mobile" name="mobile">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Select Gender</label>
+                                        <select required class="form-control" name="dd_gender">
+                                            <option value="">Choose Gender</option>
+                                            <option <% if( user.gender == 'male' ) { %> selected <% } %> value="male">Male</option>
+                                            <option <% if( user.gender == 'female' ) { %> selected <% } %> value="female">Female</option>
+                                            <option <% if( user.gender == 'other' ) { %> selected <% } %> value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea class="form-control" name="address"
+                                            placeholder="Enter address"><%= user.address %></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Select Status</label>
+                                        <select class="form-control" name="status">
+                                            <option <% if( user.status == '1' ) { %> selected <% } %> value="1">Active
+                                            </option>
+                                            <option <% if( user.status == '0' ) { %> selected <% } %> value="0">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-dark" type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<%- include("partials/footer") %>
